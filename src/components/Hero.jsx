@@ -42,24 +42,35 @@ const Hero = () => {
 
                     <div className="search-box">
                         <div className="input-group">
-                            <MapPin size={20} className="input-icon" />
+                            <MapPin size={22} className="input-icon" />
                             <input
                                 type="text"
-                                placeholder={userType === 'buyer' ? "Enter location, zip, or county" : "Enter your property location"}
+                                placeholder={userType === 'buyer' ? "Enter state, county, or city" : "Property address"}
+                                className="main-input"
                             />
                         </div>
 
                         {userType === 'buyer' && (
-                            <div className="input-group">
-                                <input type="text" placeholder="Min Acres" className="short-input" />
-                                <span className="divider">-</span>
-                                <input type="text" placeholder="Max Price" className="short-input" />
-                            </div>
+                            <>
+                                <div className="divider-vertical"></div>
+                                <div className="input-group filters-group">
+                                    <input type="text" placeholder="Acres" className="filter-input" />
+                                    <span className="filter-label">Min</span>
+                                </div>
+                                <div className="divider-vertical"></div>
+                                <div className="input-group filters-group">
+                                    <input type="text" placeholder="Price" className="filter-input" />
+                                    <span className="filter-label">Max</span>
+                                </div>
+                            </>
                         )}
 
-                        <button className="search-btn">
-                            <Search size={20} />
-                            {userType === 'buyer' ? 'Search Land' : 'List Property'}
+                        <button
+                            className="search-btn"
+                            onClick={() => alert("Search functionality coming soon! This would filter the properties below.")}
+                        >
+                            <Search size={22} />
+                            {userType === 'buyer' ? 'Search' : 'Calculate Value'}
                         </button>
                     </div>
                 </div>
