@@ -3,7 +3,7 @@ import { Search, MapPin } from 'lucide-react';
 import '../styles/Hero.css';
 
 const Hero = () => {
-    const [userType, setUserType] = useState('buyer'); // 'buyer' or 'broker'
+    const [userType, setUserType] = useState('buyer'); // 'buyer', 'broker', 'builder'
 
     return (
         <div className="hero-section">
@@ -11,16 +11,16 @@ const Hero = () => {
 
             <div className="container hero-content">
                 <div className="hero-text">
-                    <span className="hero-badge">The #1 Land Marketplace</span>
+                    <span className="hero-badge">Elite Network for Land Professionals</span>
                     <h1>
-                        {userType === 'buyer'
-                            ? 'Find Your Perfect Piece of Land'
-                            : 'Sell Your Land with Confidence'}
+                        {userType === 'buyer' && 'Find Your Perfect Piece of Land'}
+                        {userType === 'broker' && 'Maximize Your Listing Performance'}
+                        {userType === 'builder' && 'Secure Prime Land for Development'}
                     </h1>
                     <p>
-                        {userType === 'buyer'
-                            ? 'Browse thousands of rural plots, farm lands, and investment opportunities.'
-                            : 'Connect with serious buyers and close deals faster than ever.'}
+                        {userType === 'buyer' && 'Browse thousands of rural plots, farm lands, and investment opportunities.'}
+                        {userType === 'broker' && 'Connect with verified builders and serious buyers globally.'}
+                        {userType === 'builder' && 'Access off-market deals and high-yield development sites.'}
                     </p>
                 </div>
 
@@ -30,13 +30,19 @@ const Hero = () => {
                             className={userType === 'buyer' ? 'active' : ''}
                             onClick={() => setUserType('buyer')}
                         >
-                            For Buyers
+                            Buyers
                         </button>
                         <button
                             className={userType === 'broker' ? 'active' : ''}
                             onClick={() => setUserType('broker')}
                         >
-                            For Brokers
+                            Brokers
+                        </button>
+                        <button
+                            className={userType === 'builder' ? 'active' : ''}
+                            onClick={() => setUserType('builder')}
+                        >
+                            Builders
                         </button>
                     </div>
 
@@ -70,7 +76,9 @@ const Hero = () => {
                             onClick={() => alert("Search functionality coming soon! This would filter the properties below.")}
                         >
                             <Search size={22} />
-                            {userType === 'buyer' ? 'Search' : 'Calculate Value'}
+                            {userType === 'buyer' && 'Search'}
+                            {userType === 'broker' && 'List Plot'}
+                            {userType === 'builder' && 'Find Sites'}
                         </button>
                     </div>
                 </div>

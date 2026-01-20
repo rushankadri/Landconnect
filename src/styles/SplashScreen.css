@@ -1,0 +1,100 @@
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) saturate(1.2);
+    transform: scale(1.1);
+    /* Slight zoom to avoid edges */
+    animation: slowZoom 10s infinite linear alternate;
+}
+
+@keyframes slowZoom {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1.3);
+    }
+}
+
+.overlay-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 2;
+}
+
+.splash-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.splash-logo h1 {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.splash-logo span {
+    color: var(--secondary);
+}
+
+.splash-tagline {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1rem;
+}
+
+.splash-loader {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    z-index: 4;
+}
+
+@media (max-width: 768px) {
+    .splash-logo h1 {
+        font-size: 3rem;
+    }
+
+    .splash-tagline {
+        font-size: 0.75rem;
+        letter-spacing: 4px !important;
+    }
+}
